@@ -1,15 +1,16 @@
 import os
-from dotenv import load_dotenv
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -89,3 +90,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+if DEBUG:
+
+    INTERNAL_IPS = [
+        '127.0.0.1',
+    ]
+
+    INSTALLED_APPS.append('debug_toolbar')
+
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')

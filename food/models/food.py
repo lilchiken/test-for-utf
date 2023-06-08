@@ -16,15 +16,6 @@ class Food(NamedTimeStampedModel):
         on_delete=models.CASCADE
     )
 
-    is_vegan = models.BooleanField(
-        verbose_name='Вегетарианское меню',
-        default=False
-    )
-    is_special = models.BooleanField(
-        verbose_name='Специальное предложение',
-        default=False
-    )
-
     code = models.IntegerField(
         verbose_name='Код поставщика'
     )
@@ -41,6 +32,14 @@ class Food(NamedTimeStampedModel):
         decimal_places=2
     )
 
+    is_vegan = models.BooleanField(
+        verbose_name='Вегетарианское меню',
+        default=False
+    )
+    is_special = models.BooleanField(
+        verbose_name='Специальное предложение',
+        default=False
+    )
     is_publish = models.BooleanField(
         verbose_name='Опубликовано',
         default=True

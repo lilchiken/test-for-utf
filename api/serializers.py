@@ -15,7 +15,8 @@ class FoodSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Food
-        fields = '__all__'
+        exclude = ( 'created', 'modified', 'category', 'id') # 'is_publish',
+
 
 class FoodListSerializer(serializers.ModelSerializer):
     foods = FoodSerializer(
@@ -26,4 +27,4 @@ class FoodListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FoodCategory
-        fields = '__all__'
+        exclude = ('created', 'modified')
