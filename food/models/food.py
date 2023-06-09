@@ -55,5 +55,13 @@ class Food(NamedTimeStampedModel):
         verbose_name='Дополнительные товары',
         symmetrical=False,
         related_name='additional_from',
-        blank=True
+        blank=True,
     )
+
+    # class Meta:
+    #     constraints = [
+    #         models.CheckConstraint(
+    #             check=models.Q(additional__exact=models.F('id')),
+    #             name='additional_not_self'
+    #         )
+    #     ]

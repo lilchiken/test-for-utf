@@ -2,4 +2,4 @@
 
 flake8 --append-config setup.cfg
 
-TODO: Pytest, refactor viewset
+TODO: Pytest, написать свап для raw_query и orm query, docker, constraint to additional ???
