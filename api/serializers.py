@@ -24,7 +24,6 @@ class FoodSerializer(serializers.ModelSerializer):
             'description_ch',
             'is_vegan',
             'is_special',
-            # 'is_publish',
             'cost',
             'additional',
         )
