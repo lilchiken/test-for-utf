@@ -8,6 +8,41 @@ from core.fields import (
 )
 
 
+class FoodRelationship(models.Model):
+    frm = models.ForeignKey(
+        "Food",
+        on_delete=models.CASCADE,
+        related_name='to_food_id',
+        db_column='from_food_id',
+    )
+    to = models.ForeignKey(
+        "Food",
+        verbose_name='Дополнительные товары',
+        on_delete=models.CASCADE,
+        related_name='from_food_id',
+        db_column='to_food_id',
+    )
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(
+                check=~models.Q(frm=models.F("to")),
+                name='self_additional'
+            ),
+            models.UniqueConstraint(
+                fields=['frm', 'to'],
+                name='unique_additional'
+            )
+        ]
+        db_table = 'food_food_additional'
+
+
+    def __str__(self) -> str:
+        """Изменяем, чтобы в админке было более понятнее."""
+
+        return self.to.name_ru
+
+
 class Food(NamedTimeStampedModel):
     category = models.ForeignKey(
         FoodCategory,
@@ -53,15 +88,7 @@ class Food(NamedTimeStampedModel):
     additional = models.ManyToManyField(
         'self',
         verbose_name='Дополнительные товары',
+        through=FoodRelationship,
         symmetrical=False,
-        related_name='additional_from',
         blank=True,
     )
-
-    # class Meta:
-    #     constraints = [
-    #         models.CheckConstraint(
-    #             check=models.Q(additional__exact=models.F('id')),
-    #             name='additional_not_self'
-    #         )
-    #     ]

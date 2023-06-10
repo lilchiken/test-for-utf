@@ -1,11 +1,15 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(BASE_DIR.joinpath('.env'))
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.environ.get('DEBUG_VALUE') == 'TRUE'
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -90,6 +94,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+DEFER_FIELDS = ('created', 'modified',)
+
+RAW_QUERY = os.environ.get('RAW_QUERY_VALUE') == 'TRUE'
 
 
 if DEBUG:
