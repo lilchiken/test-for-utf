@@ -121,7 +121,7 @@ celerybeat.pid
 
 # Environments
 
-# Чтобы облегчить задачу с secret_key :)
+# Чтобы облегчить задачу с env :)
 # .env 
 
 .venv

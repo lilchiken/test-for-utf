@@ -24,7 +24,7 @@ class FoodAdmin(admin.ModelAdmin):
 
 
 @admin.register(FoodCategory)
-class FoodAdmin(admin.ModelAdmin):
+class FoodCategoryAdmin(admin.ModelAdmin):
     list_display = ('name_ru', 'order_id',)
     list_editable = ('order_id',)
     search_fields = ('name_ru',)

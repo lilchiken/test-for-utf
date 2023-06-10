@@ -2,7 +2,7 @@
 
 import pytest
 
-from food.models import(
+from food.models import (
     Food,
     FoodCategory
 )
@@ -34,7 +34,8 @@ def first_f_for_2f_2p(category_2f_2p):
         category=category_2f_2p,
         name_ru="first food for 2f 2p",
         code=1,
-        internal_code=1
+        internal_code=1,
+        cost=1
     )
 
 
@@ -44,7 +45,8 @@ def second_f_for_2f_2p(category_2f_2p):
         category=category_2f_2p,
         name_ru="second food for 2f 2p",
         code=2,
-        internal_code=2
+        internal_code=2,
+        cost=2
     )
 
 
@@ -54,18 +56,20 @@ def first_f_for_2f_1p(category_2f_1p):
         category=category_2f_1p,
         name_ru="first food for 2f 1p",
         code=3,
-        internal_code=3
+        internal_code=3,
+        cost=3
     )
 
 
 @pytest.fixture
-def first_f_for_2f_1p(category_2f_1p):
+def second_f_for_2f_1p(category_2f_1p):
     return Food.objects.create(
         category=category_2f_1p,
         name_ru="second food for 2f 1p",
         code=4,
         internal_code=4,
-        is_publish=False
+        is_publish=False,
+        cost=4
     )
 
 
@@ -76,5 +80,6 @@ def f_for_1f_0p(category_1f_0p):
         name_ru="first food for 2f 1p",
         code=5,
         internal_code=5,
-        is_publish=False
+        is_publish=False,
+        cost=5
     )

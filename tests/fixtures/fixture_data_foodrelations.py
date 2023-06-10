@@ -2,7 +2,7 @@
 
 import pytest
 
-from food.models import(
+from food.models import (
     Food,
     FoodCategory
 )
@@ -24,7 +24,8 @@ def first_food_first_category(first_category):
         category=first_category,
         name_ru="first food in first category",
         code=10,
-        internal_code=10
+        internal_code=10,
+        cost=10
     )
 
 
@@ -37,7 +38,8 @@ def first_food_second_category(second_category, first_food_first_category):
             " rel on first food in first category"
         ),
         code=20,
-        internal_code=20
+        internal_code=20,
+        cost=20
     )
     obj.additional.add(first_food_first_category)
     return obj
@@ -57,7 +59,8 @@ def second_food_second_category(
             " and first food in second category"
         ),
         code=25,
-        internal_code=25
+        internal_code=25,
+        cost=25
     )
     obj.additional.add(first_food_first_category)
     obj.additional.add(first_food_second_category)
@@ -66,13 +69,13 @@ def second_food_second_category(
 
 @pytest.fixture
 def second_food_first_category(
-    second_category,
+    first_category,
     first_food_first_category,
     first_food_second_category,
     second_food_second_category
 ):
     obj = Food.objects.create(
-        category=second_category,
+        category=first_category,
         name_ru=(
             "first food in first category with"
             " rel on first food in first category"
@@ -80,7 +83,8 @@ def second_food_first_category(
             " and second food in second category"
         ),
         code=15,
-        internal_code=15
+        internal_code=15,
+        cost=15
     )
     obj.additional.add(first_food_first_category)
     obj.additional.add(first_food_second_category)

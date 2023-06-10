@@ -9,9 +9,7 @@ from food.models import (
     Food,
     FoodCategory
 )
-
-if settings.RAW_QUERY:
-    from core.utils import QUERY_LIST_FOOD
+from core.utils import QUERY_LIST_FOOD
 
 
 class FoodCategoryViewSet(ListModelViewSet):
@@ -52,7 +50,6 @@ class FoodCategoryViewSet(ListModelViewSet):
 if settings.RAW_QUERY:
 
     class FoodCategoryViewSet(FoodCategoryViewSet):
-
         def get_queryset(self):
             queryset = set(
                 FoodCategory.objects.raw(
@@ -61,7 +58,7 @@ if settings.RAW_QUERY:
             )
 
             return queryset
-        
+
         def list(self, request, *args, **kwargs):
             queryset = self.get_queryset()
 

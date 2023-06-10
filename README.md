@@ -2,6 +2,6 @@
 
 flake8 --append-config setup.cfg
 
-TODO: Pytest, docker
+TODO: docker
 
 Добавить тесты на internal_code

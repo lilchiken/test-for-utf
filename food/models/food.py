@@ -36,7 +36,6 @@ class FoodRelationship(models.Model):
         ]
         db_table = 'food_food_additional'
 
-
     def __str__(self) -> str:
         """Изменяем, чтобы в админке было более понятнее."""
 
