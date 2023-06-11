@@ -48,7 +48,7 @@ P.S. В репозитории DEBUG_VALUE = TRUE , RAW_QUERY_VALUE = FALSE
 │   ├── urls.py
 │   └── views.py
 ├── core
-│   └── utils
+│   ├── utils
 │   │   ├── __init__.py
 │   │   └── foodsquery.py
 │   ├── __init__.py
@@ -56,10 +56,10 @@ P.S. В репозитории DEBUG_VALUE = TRUE , RAW_QUERY_VALUE = FALSE
 │   ├── fields.py
 │   └── models.py
 ├── food
-│   └── migrations
+│   ├── migrations
 │   │   ├── __init__.py
 │   │   ├── 0001_initial.py
-│   └── models
+│   ├── models
 │   │   ├── __init__.py
 │   │   ├── food.py
 │   │   └── foodcategory.py
