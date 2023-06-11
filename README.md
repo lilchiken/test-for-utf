@@ -128,12 +128,12 @@ $ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $ .venv\Scripts\Activate.ps1
 
 # Linux / macOS
-$ source .venv/bin/activate
+$ source venv/bin/activate
 
-(.venv) $ pip install -r requirements.txt
-(.venv) $ python3 manage.py migrate
-(.venv) $ python3 manage.py createsuperuser
-(.venv) $ python3 manage.py runserver 127.0.0.1:8000
+(venv) $ pip install -r requirements.txt
+(venv) $ python3 manage.py migrate
+(venv) $ python3 manage.py createsuperuser
+(venv) $ python3 manage.py runserver 127.0.0.1:8000
 
 # http://127.0.0.1:8000
 ```
