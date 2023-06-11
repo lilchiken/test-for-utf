@@ -1,3 +1,5 @@
+"""Здесь подменяем FoodCategoryViewSet в зависимости от settings.RAW_QUERY"""
+
 from django.db.models import Prefetch
 from django.conf import settings
 from rest_framework import permissions

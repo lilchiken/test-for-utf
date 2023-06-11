@@ -1,3 +1,5 @@
+"""Кастомные django.db.models ."""
+
 from model_utils.models import TimeStampedModel
 
 

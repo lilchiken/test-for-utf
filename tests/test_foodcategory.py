@@ -1,3 +1,5 @@
+"""Проверка FoodCategoryViewSet."""
+
 import pytest
 
 
@@ -77,7 +79,8 @@ class TestFoodCategoryAPI:
         response = client.get(self.api_url)
 
         assert len(response.json()) == 0, (
-            "Убедитесь, что FoodCategory без опубликованных Food не попадает в выдачу."
+            "Убедитесь, что FoodCategory без опубликованных "
+            "Food не попадает в выдачу."
         )
 
     def test_get_foodcategory_with_1_pub_and_1_unpub(
@@ -127,7 +130,7 @@ class TestFoodCategoryAPI:
             "(должен быть list с двумя объектами, "
             "проверь флаг is_publish в выдаче)"
         )
-    
+
     def test_get_all_foodcategory(
         self,
         client,
@@ -141,10 +144,10 @@ class TestFoodCategoryAPI:
         first_f_for_2f_2p,
         second_f_for_2f_2p
     ):
-        
+
         response = client.get(self.api_url)
         json = response.json()
-        
+
         assert len(json) == 2, (
             "Проверь, что в JSON попадают категории, у "
             "которых есть foods"
@@ -163,14 +166,14 @@ class TestFoodCategoryAPI:
             "которых есть foods"
         )
 
-        food_f_category_i_code = first_category['foods'][0]['internal_code']
-        f_food_s_category_i_code = second_category['foods'][0]['internal_code']
-        s_food_s_category_i_code = second_category['foods'][1]['internal_code']
+        food_f_category_i_c = first_category['foods'][0]['internal_code']
+        f_food_s_category_i_c = second_category['foods'][0]['internal_code']
+        s_food_s_category_i_c = second_category['foods'][1]['internal_code']
 
         check_correct_objs = {
-            first_f_for_2f_1p.internal_code: food_f_category_i_code,
-            first_f_for_2f_2p.internal_code: f_food_s_category_i_code,
-            second_f_for_2f_2p.internal_code: s_food_s_category_i_code,
+            first_f_for_2f_1p.internal_code: food_f_category_i_c,
+            first_f_for_2f_2p.internal_code: f_food_s_category_i_c,
+            second_f_for_2f_2p.internal_code: s_food_s_category_i_c,
         }
 
         for key, val in check_correct_objs.items():

@@ -25,7 +25,6 @@ from foodies.settings import (
 
 app_gen = (
     app in INSTALLED_APPS for app in [
-        # 'rest_framework',
         'api',
         'core',
         'food',

@@ -1,3 +1,5 @@
+"""Проверка отображения "additional" и в целом "foods"."""
+
 import pytest
 
 
@@ -11,10 +13,10 @@ class TestFoodRelAPI:
         client,
         first_category,
         second_category,
-        first_food_first_category,
-        first_food_second_category,
-        second_food_second_category,
-        second_food_first_category
+        f_food_f_category,
+        f_food_s_category,
+        s_food_s_category,
+        s_food_f_category
     ):
 
         response = client.get(self.api_url)
@@ -36,24 +38,24 @@ class TestFoodRelAPI:
             "Проверь, что при создании FoodRel объекты не пропадают из foods"
         )
 
-        foods_first_category = json_first_category['foods']
-        foods_second_category = json_second_category['foods']
+        fs_f_ctgr = json_first_category['foods']
+        fs_s_ctgr = json_second_category['foods']
 
-        assert len(foods_first_category) == 2, (
+        assert len(fs_f_ctgr) == 2, (
             "Проверь, что при создании FoodRel попадают только объекты "
             " указаной категории"
         )
 
-        assert len(foods_second_category) == 2, (
+        assert len(fs_s_ctgr) == 2, (
             "Проверь, что при создании FoodRel попадают только объекты "
             " указаной категории"
         )
 
         check_i_code_objs = {
-            foods_first_category[0]['internal_code']: first_food_first_category.internal_code,
-            foods_first_category[1]['internal_code']: second_food_first_category.internal_code,
-            foods_second_category[0]['internal_code']: first_food_second_category.internal_code,
-            foods_second_category[1]['internal_code']: second_food_second_category.internal_code,
+            fs_f_ctgr[0]['internal_code']: f_food_f_category.internal_code,
+            fs_f_ctgr[1]['internal_code']: s_food_f_category.internal_code,
+            fs_s_ctgr[0]['internal_code']: f_food_s_category.internal_code,
+            fs_s_ctgr[1]['internal_code']: s_food_s_category.internal_code,
         }
 
         for key, val in check_i_code_objs.items():
@@ -61,12 +63,12 @@ class TestFoodRelAPI:
             assert key == val, (
                 "Проверь, что internal_code объектов не изменяется"
             )
-        
+
         check_additional_objs = {
-            tuple(foods_first_category[0]['additional']): (),
-            tuple(foods_first_category[1]['additional']): (10, 20, 25),
-            tuple(foods_second_category[0]['additional']): (10,),
-            tuple(foods_second_category[1]['additional']): (10, 20),
+            tuple(fs_f_ctgr[0]['additional']): (),
+            tuple(fs_f_ctgr[1]['additional']): (10, 20, 25),
+            tuple(fs_s_ctgr[0]['additional']): (10,),
+            tuple(fs_s_ctgr[1]['additional']): (10, 20),
         }
 
         for key, val in check_additional_objs.items():

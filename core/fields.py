@@ -1,3 +1,5 @@
+"""Кастомные django.db.models.fields ."""
+
 from django.db import models
 
 

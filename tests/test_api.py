@@ -1,3 +1,5 @@
+"""Проверка методов REST API."""
+
 from http import HTTPStatus
 
 import pytest

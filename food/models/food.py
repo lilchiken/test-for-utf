@@ -9,6 +9,8 @@ from core.fields import (
 
 
 class FoodRelationship(models.Model):
+    """Модель для связи m2m Food's."""
+
     frm = models.ForeignKey(
         "Food",
         on_delete=models.CASCADE,

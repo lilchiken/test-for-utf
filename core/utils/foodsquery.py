@@ -1,4 +1,4 @@
-"""There save raw query's for api/v1/foods/."""
+"""Здесь хранятся запросы в базу данных в виде Raw SQL."""
 
 
 QUERY_LIST_FOOD = str(

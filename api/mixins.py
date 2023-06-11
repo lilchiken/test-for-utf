@@ -5,4 +5,6 @@ from rest_framework import (
 
 
 class ListModelViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
+    """Ограничиваем методы к viewset'у."""
+
     pass
