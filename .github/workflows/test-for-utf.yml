@@ -16,5 +16,5 @@ jobs:
     - name: Build & Push Image
       run: |
         echo "${{ secrets.DOCKERPW }}" | docker login -u "lilchiken" --password-stdin
-        docker image build -t lilchiken/ecommerce-django-project:latest .
-        docker push lilchiken/ecommerce-django-project:latest
+        docker image build -t lilchiken/test-for-utf:latest .
+        docker push lilchiken/test-for-utf:latest
