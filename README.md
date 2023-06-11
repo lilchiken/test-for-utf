@@ -6,3 +6,5 @@ TODO: docker
 
 pep8 тесты
 coverage показывает 100% на api/views, если закомментить 50 строку и ниже)
+
+docker run -d --name test-utf -p 8000:80 test-utf

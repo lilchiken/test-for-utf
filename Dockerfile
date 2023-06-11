@@ -5,7 +5,5 @@ COPY requirements.txt /app
 RUN pip3 install -r requirements.txt --no-cache-dir
 COPY . /app 
 ENTRYPOINT ["python3"] 
-CMD ["-m", "flake8", "--append-config", "setup.cfg"]
-CMD ["-m", "pytest"]
-CMD ["manage.py", "migrate"]
-CMD ["manage.py", "runserver", "127.0.0.1:8000"]
+CMD ["manage.py", "migrate", "food"]
+CMD ["manage.py", "runserver", "0.0.0.0:80"]

@@ -9,12 +9,11 @@ load_dotenv(BASE_DIR.joinpath('.env'))
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = os.environ.get('DEBUG_VALUE') == 'TRUE'
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1'
-]
+DEBUG_TOOLBAR = os.environ.get('DEBUG_VALUE') == 'TRUE'
+
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -101,11 +100,14 @@ DEFER_FIELDS = ('created', 'modified',)
 RAW_QUERY = os.environ.get('RAW_QUERY_VALUE') == 'TRUE'
 
 
-if DEBUG:
+if DEBUG_TOOLBAR:
 
-    INTERNAL_IPS = [
-        '127.0.0.1',
-    ]
+    def show_toolbar(request):
+        return True
+
+    DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': show_toolbar,
+    }
 
     INSTALLED_APPS.append('debug_toolbar')
 
