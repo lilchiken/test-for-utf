@@ -31,7 +31,7 @@ P.S. Запрос через ORM создаёт 3 запроса. Через Raw
 
  - SECRET_KEY - secret_key в settings.py
  - DEBUG_VALUE - если TRUE то подключается debug_toolbar.
- - RAW_QUERY_VALUE - если TRUE то подключается работает ViewSet на Django Raw. (в остальных случаях работает Django ORM)
+ - RAW_QUERY_VALUE - если TRUE то работает ViewSet на Django Raw. (в остальных случаях работает Django ORM)
 
 P.S. В репозитории DEBUG_VALUE = TRUE , RAW_QUERY_VALUE = FALSE
 
