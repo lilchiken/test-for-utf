@@ -94,9 +94,9 @@ P.S. В репозитории DEBUG_VALUE = TRUE , RAW_QUERY_VALUE = FALSE
 ----
 
 ## 📖 Installation
-Docker и Pip.
-**Docker - образ уже содержит все миграции и созданного superuser.**
-**login: admin**
+Docker и Pip.  
+**Docker - образ уже содержит все миграции и созданного superuser.**  
+**login: admin**  
 **password: admin**
 
 ### Docker - образ с DockerHub
